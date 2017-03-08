@@ -11,7 +11,7 @@ function install-kernel {
         else
             python -m ipykernel --version || pip install ipykernel
             python -m ipykernel install --user \
-                --name ${ve_name} --display-name "%{pyver} (${ve_name})"
+                --name ${ve_name} --display-name "${pyver} (${ve_name})"
             return $?
         fi
     else
