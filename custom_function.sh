@@ -35,3 +35,19 @@ function tunnel79 {
     local_port=$2
     ssh -fNL ${remote_port}:localhost:${local_port} md79-deep
 }
+
+
+# Checkout a branch for a pull request
+# Inspired from
+# https://gist.github.com/captainsafia/954351fc7b05bb748b5d2112624f8a2f
+function gh-pull {
+    if [[ "$#" != 2 ]]
+    then
+        echo "Arguments must be <remote> <PR-ID>."
+        return 1
+    fi
+    remote=$1
+    pr_id=$2
+    git fetch $remote pull/${pr_id}/head:pr-${pr_id}
+    git checkout pr-${pr_id}
+}
