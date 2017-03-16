@@ -3,7 +3,8 @@ function install-kernel {
     if [[ -n ${VIRTUAL_ENV} ]]
     then
         ve_name=$(basename ${VIRTUAL_ENV})
-        pyver=$(python --version | cut -f 1 -d .)
+        pyver=$(python --version 2>&1 | cut -f 1 -d .)
+        echo "Python version: ${pyver}"
         if [[ -d "$(jupyter --data-dir)/kernels/${ve_name}" ]]
         then
             echo "The kernel is already installed."
