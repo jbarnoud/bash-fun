@@ -23,12 +23,12 @@ function install-kernel {
 
 
 # Open a ssh tunel to a port on md79
-# The first argument is the port on md79,
-# the second argument is the port on localhost.
+# The first argument is the port on localhost,
+# the second argument is the port on md79.
 function tunnel79 {
     if [[ "$#" != 2 ]]
     then
-        echo "Arguments must be <port on md79> <port on localhost>."
+        echo "Arguments must be <port on localhost> <port on md79>."
         return 1
     fi
     remote_port=$1
